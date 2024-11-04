@@ -2,6 +2,8 @@
 
 # Explor-Eats
 
+![Alt](https://repobeats.axiom.co/api/embed/0329660dd035c342180bab8d1587a63223b4b349.svg "Repobeats analytics image")
+
 ---
 
 ## Description
