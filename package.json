@@ -1,23 +1,15 @@
 {
   "name": "explor-eats",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "<div align=\"center\">",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\""
   },
-  "type": "commonjs",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "dotenv": "^16.4.5",
-    "ejs": "^3.1.10",
-    "express": "^4.21.1",
-    "express-ejs-layouts": "^2.5.1",
-    "mongoose": "^8.8.0"
-  },
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "concurrently": "^9.1.0"
   }
 }
