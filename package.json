@@ -2,17 +2,19 @@
   "name": "explor-eats",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon server/server.js"
+    "dev": "nodemon server.js"
   },
-  "type": "module",
+  "type": "commonjs",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
     "express": "^4.21.1",
+    "express-ejs-layouts": "^2.5.1",
     "mongoose": "^8.8.0"
   },
   "devDependencies": {
