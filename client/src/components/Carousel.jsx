@@ -50,4 +50,4 @@ const Carousel = ({ slides }) => {
   );
 };
 
-export default Carousel;
+export { Carousel };
