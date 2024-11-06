@@ -68,3 +68,17 @@
     font-family: 'Montserrat', sans-serif;
   }
 }
+
+.embla {
+  overflow: hidden;
+  width: 100%;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  position: relative;
+  margin: 0px 10px;
+}
