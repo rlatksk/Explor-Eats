@@ -22,7 +22,19 @@ const placeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  foodImages: {
+    type: [String],
+    required: true,
+  },
+  ambienceImages: {
+    type: [String],
+    required: true,
+  }
 });
+
+function arrayLimit(val) {
+  return val.length <= (this.path === 'foodImages' ? 3 : 5);
+}
 
 const Place = mongoose.model('Place', placeSchema);
 
