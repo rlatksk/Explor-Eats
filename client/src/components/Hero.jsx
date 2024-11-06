@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Card } from "@/components/ui/card"
 
 
 export default function HeroTest() {
@@ -20,6 +21,10 @@ export default function HeroTest() {
 return (
     <div>
         <h1 className="text-red-500">{data}</h1>
+        <Card>
+          <h2>Card Title</h2>
+          <p>This is a card component.</p>
+        </Card>
     </div>
 );
 }
