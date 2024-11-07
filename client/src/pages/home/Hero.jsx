@@ -8,7 +8,7 @@ function Hero() {
   return (
     <div className='relative h-screen bg-cover bg-center' style={{ backgroundImage: `url(${bgDayak})` }}>
       <div className='absolute inset-0 bg-black opacity-65'></div> {/* Overlay with opacity */}
-      <div className='relative grid grid-cols-2 gap-5 place-items-center h-fit w-fit px-[3.25rem] pt-[10rem] pb-[5rem]'>
+      <div className='relative grid grid-cols-2 gap-5 place-items-center align-center h-full w-full px-[3.25rem] pt-[10rem] pb-[5rem]'>
         <div className='flex flex-col items-start gap-y-[1.25rem]'>
           <h1 className='text-white text-[2.5rem] font-bold'>West Borneo Culinary</h1>
           <hr className='border-t-2 border-gray-300 w-full rounded-full' />
