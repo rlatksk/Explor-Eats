@@ -1,53 +1,100 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
+import CheHunTiau from '@/assets/images/CheHunTiau.jpg';
 
-const Carousel = ({ slides }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' }, [Autoplay({ delay: 3000, stopOnInteraction: false })]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+const TWEEN_FACTOR_BASE = 0.3; // Factor to control the tweening intensity
+
+// Utility function to keep values within a range
+const numberWithinRange = (number, min, max) => Math.min(Math.max(number, min), max);
+
+const Carousel = ({ slides, options }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, 
+    [Autoplay({ stopOnMouseEnter:true, delay: 2000, stopOnInteraction: false, })]
+  );
+  const tweenFactor = useRef(0);
+  const tweenNodes = useRef([]);
+
+  // Set up the tweening nodes on the slides
+  const setTweenNodes = useCallback((emblaApi) => {
+    tweenNodes.current = emblaApi.slideNodes().map((slideNode) => 
+      slideNode.querySelector('.embla__slide__number')
+    );
+  }, []);
+
+  // Set the tweening factor based on the number of slides
+  const setTweenFactor = useCallback((emblaApi) => {
+    tweenFactor.current = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length;
+  }, []);
+
+  // Apply the scale transformation to the slides based on their distance to the center
+  const tweenScale = useCallback((emblaApi, eventName) => {
+    const engine = emblaApi.internalEngine();
+    const scrollProgress = emblaApi.scrollProgress();
+    const slidesInView = emblaApi.slidesInView();
+    const isScrollEvent = eventName === 'scroll';
+
+    emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
+      let diffToTarget = scrollSnap - scrollProgress;
+      const slidesInSnap = engine.slideRegistry[snapIndex];
+
+      slidesInSnap.forEach((slideIndex) => {
+        if (isScrollEvent && !slidesInView.includes(slideIndex)) return;
+
+        // Handle loop adjustments
+        if (engine.options.loop) {
+          engine.slideLooper.loopPoints.forEach((loopItem) => {
+            const target = loopItem.target();
+            if (slideIndex === loopItem.index && target !== 0) {
+              const sign = Math.sign(target);
+              if (sign === -1) diffToTarget = scrollSnap - (1 + scrollProgress);
+              if (sign === 1) diffToTarget = scrollSnap + (1 - scrollProgress);
+            }
+          });
+        }
+
+        // Calculate and apply scale transformation
+        const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current);
+        const scale = numberWithinRange(tweenValue, 0, 1).toString();
+        const tweenNode = tweenNodes.current[slideIndex];
+        tweenNode.style.transform = `scale(${scale})`;
+      });
+    });
+  }, []);
 
   useEffect(() => {
     if (!emblaApi) return;
-    emblaApi.on('select', () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
-    });
-  }, [emblaApi]);
 
-  const scrollToSlide = (index) => {
-    if (emblaApi) {
-      emblaApi.scrollTo(index);
-      emblaApi.plugins().forEach(plugin => {
-        if (plugin.name === 'Autoplay') {
-          plugin.reset();
-        }
-      });
-    }
-  };
+    setTweenNodes(emblaApi);
+    setTweenFactor(emblaApi);
+    tweenScale(emblaApi);
+
+    emblaApi
+      .on('reInit', setTweenNodes)
+      .on('reInit', setTweenFactor)
+      .on('reInit', tweenScale)
+      .on('scroll', tweenScale)
+      .on('slideFocus', tweenScale);
+  }, [emblaApi, tweenScale]);
 
   return (
-    <div className="embla" ref={emblaRef}>
-      <div className="embla__container flex">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`embla__slide relative flex-[0_0_auto] transition-transform duration-300 ease-in-out ${
-              selectedIndex === index ? 'scale-105' : 'scale-100'
-            }`}
-            onClick={() => scrollToSlide(index)}
-          >
-            <img
-              src={slide.image}
-              alt={slide.text}
-              className="object-cover cursor-pointer w-[29.375rem] h-[37.5rem] max-h-[37.5rem]"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-              <p className="text-white text-lg">{slide.text}</p>
-            </div>
+    <div className="embla" >
+      <div className="embla__viewport" ref={emblaRef}>
+        <div className="embla__container">
+          {slides.map((slide, index) => (
+            <div className="embla__slide">
+                <div className="embla__slide__number"> 
+                  <img className="embla__slide__image" src={slide.image}  />
+                    <div className="embla__slide__overlay">
+                    <p className="text-white text-lg">{slide.text}</p>
+                </div>
+                </div>
           </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
-export { Carousel };
+export{ Carousel };

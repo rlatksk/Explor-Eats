@@ -11,8 +11,10 @@ function FoodHome() {
     { id: 5, text: 'Slide 5', image: CheHunTiau },
   ];
 
+  const OPTIONS = { loop: true }
+
   return (
-    <div className='flex flex-col h-fit bg-[#F3F1E7] gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[6.25rem]'>
+    <div className='flex flex-col h-fit items-center bg-[#F3F1E7] gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[6.25rem]'>
       <div className='flex flex-col gap-[1.125rem] items-center'>
         <hr className='border-t-8 border-secondaryColor w-full rounded-full' />
         <h1 className='text-secondaryColor font-bold text-[4rem]'>THE FOODS</h1>
@@ -20,11 +22,11 @@ function FoodHome() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum.
         </p>
         <hr className='border-t-8 border-secondaryColor w-11/12 rounded-full' />
-        <div>
-          <Carousel slides={slides} />
-        </div>
+          {/* <Carousel slides={slides} /> */}
+          <Carousel slides={slides} options={OPTIONS} />
+        
       </div>
-      <hr className='border-t-8 border-secondaryColor w-11/12 rounded-full' />
+        <hr className='border-t-8 border-secondaryColor w-11/12 rounded-full' />
     </div>
   );
 }
