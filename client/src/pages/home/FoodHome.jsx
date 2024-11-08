@@ -14,7 +14,7 @@ function FoodHome() {
   const OPTIONS = { loop: true }
 
   return (
-    <div className='flex flex-col h-fit items-center bg-[#F3F1E7] gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[6.25rem]'>
+    <div className='flex flex-col h-fit items-center bg-[#F3F1E7] gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[10rem]'>
       <div className='flex flex-col gap-[1.125rem] items-center'>
         <hr className='border-t-8 border-secondaryColor w-full rounded-full' />
         <h1 className='text-secondaryColor font-bold text-[4rem]'>THE FOODS</h1>
