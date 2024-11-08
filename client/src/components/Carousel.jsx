@@ -82,7 +82,7 @@ const Carousel = ({ slides, options }) => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide, index) => (
-            <div className="embla__slide">
+            <div className="embla__slide" key={index}>
                 <div className="embla__slide__number"> 
                   <img className="embla__slide__image" src={slide.image}  />
                     <div className="embla__slide__overlay">
