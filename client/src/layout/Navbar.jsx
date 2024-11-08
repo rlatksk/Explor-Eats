@@ -9,7 +9,6 @@ function Navbar() {
         <div className="space-x-4">
           <Link to="/" className="text-[#F1C84F] hover:text-[#A1883B] text-[24px]">Home</Link>
           <Link to="/" className="text-gray-300 hover:text-[#A1883B] text-[16px] transition-all duration-500 ease-in-out hover:text-[24px]">Makanan</Link>
-          <Link to="/" className="text-gray-300 hover:text-[#A1883B] text-[16px] transition-all duration-500 ease-in-out hover:text-[24px]">Lokasi</Link>
           <Link to="/" className="text-gray-300 hover:text-[#A1883B] text-[16px] transition-all duration-500 ease-in-out hover:text-[24px]">About</Link>
         </div>
       </div>

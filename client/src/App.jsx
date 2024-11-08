@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
 import Home from './pages/home/Home';
 import Hero from './pages/home/Hero';
 import Navbar from './layout/Navbar';
@@ -7,12 +8,15 @@ import Navbar from './layout/Navbar';
 
 function App() {
   return (
-    <Router>
+    <div>
       <Navbar />
-      <Routes>
+      <Outlet />
+      {/* <Routes>
         <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
+        <Route path="/foods/details" element={<Hero />} />
+      </Routes> */}
+    </div>
+      
   )
 }
 

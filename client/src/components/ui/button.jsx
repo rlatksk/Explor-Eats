@@ -11,13 +11,13 @@ const buttonVariants = cva(
         default:
           "bg-primaryColor text-secondaryColor shadow hover:bg-secondaryColor hover:text-primaryColor",
         default2:
-          "bg-primaryColor text-secondaryColor shadow hover:bg-primaryColor/50",
+          "bg-primaryColor text-secondaryColor shadow-sm hover:bg-primaryColor/80",
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
           "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+          "bg-secondaryColor text-primaryColor shadow-sm hover:bg-secondaryColor/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
@@ -48,5 +48,5 @@ const Button = React.forwardRef(({ className, variant, size, asChild = false, ..
 
 Button.displayName = "Button";
 
-export { Button };
+export { Button, buttonVariants };
 export default Button;
