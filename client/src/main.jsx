@@ -8,6 +8,7 @@ import './index.css'
 import App from './App'
 import Home from './pages/home/Home'
 import FoodDetails from './pages/details/FoodDetails';
+import PlacesDetails from './pages/details/PlacesDetails';
 
 const router = createBrowserRouter([
   {
@@ -25,8 +26,18 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/details/", // Add id here later
+        path: "/details/food", // Add id here later
         element: <FoodDetails />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/details/place", // Add id here later
+        element: <PlacesDetails />,
       },
     ],
   },
