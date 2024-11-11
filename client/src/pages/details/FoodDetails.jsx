@@ -9,7 +9,10 @@ function FoodDetails() {
     return (
         <div>
             <PageDesc />
-            <div className='flex flex-col h-fit items-center bg-tertiaryColor gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[20rem]'>
+            <div className='flex flex-col h-fit bg-tertiaryColor gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[20rem]'>
+            <Link to={"/"} className='text-secondaryColor font-semibold text-[1.25rem]'>
+                &larr; Back
+            </Link>
                 <div className='grid grid-cols-9 gap-16 items-center'>
                     <img src={CheHunTiau} className='h-[24.5rem] col-span-5 w-full object-cover rounded-[0.625rem]'/>
                     <div className='flex flex-col col-span-4 gap-6 justify-center border-secondaryColor border-2 rounded-[2rem] p-8 bg-primaryColor'>

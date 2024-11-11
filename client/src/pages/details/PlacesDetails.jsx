@@ -7,7 +7,10 @@ function PlacesDetails() {
   return (
     <div>
       <PageDesc/>
-      <div className='flex flex-col h-fit items-center bg-tertiaryColor gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[15rem]'>
+      <div className='flex flex-col h-fit bg-tertiaryColor gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[15rem]'>
+        <Link to={"/"} className='text-secondaryColor font-semibold text-[1.25rem]'>
+          &larr; Back
+        </Link>
         <div className='grid grid-cols-7 gap-12'>
           <div className='flex flex-col col-span-3'>
             <img src={CheHunTiau} className='object-cover h-full w-full' />
