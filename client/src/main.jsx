@@ -9,6 +9,7 @@ import App from './App'
 import Home from './pages/home/Home'
 import FoodDetails from './pages/details/FoodDetails';
 import PlacesDetails from './pages/details/PlacesDetails';
+import SearchList from './pages/SearchList';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,16 @@ const router = createBrowserRouter([
       {
         path: "/details/place", // Add id here later
         element: <PlacesDetails />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/list", // Add id here later
+        element: <SearchList />,
       },
     ],
   },
