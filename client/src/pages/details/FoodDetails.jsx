@@ -8,7 +8,7 @@ import CheHunTiau from '@/assets/images/CheHunTiau.jpg';
 function FoodDetails() {
     return (
         <div>
-            <PageDesc />
+            <PageDesc title={'FoodDetails'} route={'Home/Makanan/(Choipan)'} />
             <div className='flex flex-col h-fit bg-tertiaryColor gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[20rem]'>
             <Link to={"/"} className='text-secondaryColor font-semibold text-[1.25rem]'>
                 &larr; Back
