@@ -56,6 +56,7 @@ export default {
 			primaryColor: "#F3F1E7",
 			secondaryColor: "#382F2F",
 			tertiaryColor: "#F5E3A2",
+			yellow: "#DFC064",
 			gray: "#7B7875"
   		}
   	}
