@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import CheHunTiau from '@/assets/images/CheHunTiau.jpg';
 
 function PlaceHome() {
@@ -19,8 +20,10 @@ function PlaceHome() {
             <p className='text-primaryColor font-semibold text-[0.938rem] text-justify'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum. Mauris ut accumsan magna. Aliquam aliquet accumsan metus, sed congue ipsum hendrerit eu. Fusce condimentum laoreet lacus eu dapibus. Proin a tempus justo. Nullam arcu nunc, fermentum molestie diam in, pellentesque ultrices orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed mauris libero, pretium eu porttitor vel, pretium vel purus.
             </p>
-            <Button className="{}min-w-[34.375rem]" variant="default2" >
-              Start Discovering
+            <Button className="min-w-[34.375rem]" variant="default2" >
+              <Link to="/">
+                Start Discovering
+              </Link>
             </Button>
           </div>
         </div>
@@ -31,7 +34,9 @@ function PlaceHome() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum. Mauris ut accumsan magna. Aliquam aliquet accumsan metus, sed congue ipsum hendrerit eu. Fusce condimentum laoreet lacus eu dapibus. Proin a tempus justo. Nullam arcu nunc, fermentum molestie diam in, pellentesque ultrices orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed mauris libero, pretium eu porttitor vel, pretium vel purus.
             </p>
             <Button className="{}min-w-[34.375rem]" variant="default2" >
-              Start Discovering
+            <Link to="/">
+                Start Discovering
+              </Link>
             </Button>
           </div>
           <img src={CheHunTiau} className='h-[24.5rem] w-full object-cover rounded-[0.625rem]'/>
