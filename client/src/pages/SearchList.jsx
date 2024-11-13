@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import PageDesc from '@/layout/PageDesc'
 import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
 import CheHunTiau from '@/assets/images/CheHunTiau.jpg';
@@ -13,17 +13,35 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
+import axios from 'axios';
 
 function SearchList() {
-  const items = ['Apple', 'Banana', 'Orange', 'Grapes', 'A', 'Apple', 'Banana', 'Orange', 'Grapes', 'A', 'B'];
+  const [items, setItems] = useState([]);
   const [page, setPage] = useState(0);
   const [limit, setLimit] = useState(9);
   const [pages, setPages] = useState(0);
   const [keyword, setKeyword] = useState('');
 
+  useEffect(() => {
+    axios.get('/api/food')
+      .then((res) => {
+        console.log('Response data:', res.data);  // Inspect the structure of your data
+        // Check if response data is an array and set items accordingly
+        if (Array.isArray(res.data)) {
+          setItems(res.data);  // Set items if it's an array
+        } else {
+          console.error('Expected an array in response, but got:', res.data);
+        }
+      })
+      .catch((error) => {
+        console.error('There was an error fetching the data!', error);
+      });
+  }, []);
+  
+  
   return (
     <div>
-      <PageDesc title={'SearchList'} route={'Home/List'}/>
+      <PageDesc title={'Search List'} route={'Home / List'}/>
       <div className='flex flex-col h-fit bg-primaryColor gap-[2rem] pt-[4.375rem] pb-[3.125rem] px-[15rem]'>
         <div className='flex justify-between'>
           <h2 className='text-[2rem] text-secondaryColor'>Search for ""</h2>
@@ -39,27 +57,24 @@ function SearchList() {
           </div>
         </div>
         <div className='grid grid-cols-3 gap-6 p-4'>
-        {items.map((item, index) => (
-            <Card className={`w-full bg-secondaryColor ${index === items.length - 1 ? 'col-span-2' : ''}`}
-              key={index}
-              style={{ height: '32rem' }}
-            >
-            <img src={CheHunTiau} className='w-full rounded-t-xl object-cover h-2/3'/>
-            <CardHeader className="h-1/3 gap-3">
-              <CardTitle className="text-primaryColor">
-              {item}
-              </CardTitle>
-              <CardDescription className="text-gray">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              </CardDescription>
-              <Button className="rounded-full" variant='default2' asChild>
-                <Link to='/'>
-                  Details
-                </Link>
-              </Button>
-            </CardHeader>
-          </Card>
-          ))}
+        {Array.isArray(items) ? (
+          items.map((item, index) => (
+            <Card key={index} className={`w-full bg-secondaryColor ${index === items.length - 1 ? 'col-span-2' : ''}`} style={{ height: '32rem' }}>
+              <img src={item.foodImage} className='w-full rounded-t-xl object-cover h-2/3' alt={item.name} />
+              <CardHeader className="h-1/3 gap-3">
+                <CardTitle className="text-primaryColor">{item.name}</CardTitle>
+                <CardDescription className="text-gray">{item.description}</CardDescription>
+                <Button className="rounded-full" variant='default2' asChild>
+                  <Link to={`/${item._id}`}>
+                    Details
+                  </Link>
+                </Button>
+              </CardHeader>
+            </Card>
+          ))
+        ) : (
+          <p>No items available or data is not in the correct format.</p>
+        )}
         </div>
         <Pagination>
           <PaginationContent>
@@ -67,10 +82,10 @@ function SearchList() {
               <PaginationPrevious href="#" />
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">1</PaginationLink>
+              <PaginationLink href="#" isActive>1</PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#" isActive>
+              <PaginationLink href="#" >
                 2
               </PaginationLink>
             </PaginationItem>
