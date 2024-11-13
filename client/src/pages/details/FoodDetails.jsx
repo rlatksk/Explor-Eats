@@ -32,7 +32,7 @@ function FoodDetails() {
     <div>
       <PageDesc title={'Food Details'} route={'Home / Makanan / (Choipan)'} />
       <div className='flex flex-col h-fit bg-tertiaryColor gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[20rem]'>
-        <Link to="/" className='text-secondaryColor font-semibold text-[1.25rem]'>
+        <Link to="/list" className='text-secondaryColor font-semibold text-[1.25rem]'>
           &larr; Back
         </Link>
         <div className='grid grid-cols-9 gap-16 items-center'>

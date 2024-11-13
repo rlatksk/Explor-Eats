@@ -79,7 +79,7 @@ function SearchList() {
                 <CardTitle className="text-primaryColor">{item.name}</CardTitle>
                 <CardDescription className="text-gray line-clamp-6 overflow-hidden text-ellipsis whitespace-pre-line" >{item.description}</CardDescription>
                 <Button className="rounded-full" variant='default2' asChild>
-                  <Link to={`/${item._id}`}>
+                  <Link to={`/details/food/${item._id}`}>
                     Details
                   </Link>
                 </Button>
