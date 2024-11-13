@@ -25,10 +25,9 @@ function SearchList() {
   useEffect(() => {
     axios.get('/api/food')
       .then((res) => {
-        console.log('Response data:', res.data);  // Inspect the structure of your data
-        // Check if response data is an array and set items accordingly
+        console.log('Response data:', res.data);
         if (Array.isArray(res.data)) {
-          setItems(res.data);  // Set items if it's an array
+          setItems(res.data);
         } else {
           console.error('Expected an array in response, but got:', res.data);
         }
