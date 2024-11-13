@@ -58,11 +58,11 @@ function SearchList() {
         <div className='grid grid-cols-3 gap-6 p-4'>
         {Array.isArray(items) ? (
           items.map((item, index) => (
-            <Card key={index} className={`w-full bg-secondaryColor ${index === items.length - 1 ? 'col-span-2' : ''}`} style={{ height: '32rem' }}>
-              <img src={item.foodImage} className='w-full rounded-t-xl object-cover h-2/3' alt={item.name} />
-              <CardHeader className="h-1/3 gap-3">
+            <Card key={index} className={` w-full bg-secondaryColor ${index === items.length - 1 ? 'col-span-2' : ''}`} style={{ height: '32rem' }}>
+              <img src={item.foodImage} className='w-full rounded-t-xl object-cover h-1/2' alt={item.name} />
+              <CardHeader className="h-fit gap-3">
                 <CardTitle className="text-primaryColor">{item.name}</CardTitle>
-                <CardDescription className="text-gray">{item.description}</CardDescription>
+                <CardDescription className="text-gray line-clamp-6 overflow-hidden text-ellipsis whitespace-pre-line" >{item.description}</CardDescription>
                 <Button className="rounded-full" variant='default2' asChild>
                   <Link to={`/${item._id}`}>
                     Details
