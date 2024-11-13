@@ -20,8 +20,10 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to the server" });
 });
 
-const placeRoute = require('./routes/placeRoutes');
-app.use('/api', placeRoute);
+const foodRoute = require('./routes/foodRoutes');
+const cityRoute = require('./routes/cityRoutes');
+app.use('/api', foodRoute);
+app.use('/api', cityRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
