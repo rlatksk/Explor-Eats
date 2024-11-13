@@ -15,11 +15,11 @@ function Hero() {
           <p className='text-[0.875rem] font-semibold text-justify'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum. Mauris ut accumsan magna. Aliquam aliquet accumsan metus, sed congue ipsum hendrerit eu. Fusce condimentum laoreet lacus eu dapibus. Proin a tempus justo. Nullam arcu nunc, fermentum molestie diam in, pellentesque ultrices orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed mauris libero, pretium eu porttitor vel, pretium vel purus.
           </p>
-          <Button className="min-w-[34.375rem]">
-            <Link to="/">
+          <Link to="/list">
+            <Button className="min-w-[34.375rem]">
               Start Discovering
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </div>
         <div className='items-center justify-center w-fit h-fit'>
           <img src={heroImg} className=''/>
