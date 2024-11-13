@@ -6,6 +6,7 @@ const {
   getFoodsbyCity,
   updateFood,
   deleteFood,
+  getFoodById,
 } = require("../controllers/foodController");
 const router = express.Router();
 
@@ -21,6 +22,7 @@ router.post(
 );
 router.get("/food", getFoods);
 router.get("/food/city", getFoodsbyCity);
+router.get("/food/:id", getFoodById);
 router.put(
   "/food/:id",
   upload.fields([

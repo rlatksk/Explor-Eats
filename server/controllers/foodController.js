@@ -105,10 +105,24 @@ async function deleteFood(req, res) {
   }
 }
 
+async function getFoodById(req, res) {
+  try {
+    const { id } = req.params;
+    const food = await Food.findById(id);
+    if (!food) {
+      return res.status(404).json({ error: "Food not found" });
+    }
+    res.status(200).json(food);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
 module.exports = {
   createFood,
   getFoods,
   getFoodsbyCity,
   updateFood,
   deleteFood,
+  getFoodById
 };
