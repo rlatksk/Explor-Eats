@@ -30,7 +30,7 @@ function FoodDetails() {
 
   return (
     <div>
-      <PageDesc title={'Food Details'} route={'Home / Makanan / (Choipan)'} />
+      <PageDesc title={`${food.name}`} route={`Home / Food / ${food.name}`} />
       <div className='flex flex-col h-fit bg-tertiaryColor gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[20rem]'>
         <Link to="/list" className='text-secondaryColor font-semibold text-[1.25rem]'>
           &larr; Back

@@ -53,7 +53,7 @@ function SearchList() {
 
   return (
     <div>
-      <PageDesc title={'Search List'} route={'Home / List'} />
+      <PageDesc title={'Food List'} route={'Home / Food / List'} />
       <div className='flex flex-col h-fit bg-primaryColor gap-[2rem] pt-[4.375rem] pb-[3.125rem] px-[15rem]'>
         <div className='flex justify-between'>
           <h2 className='text-[2rem] text-secondaryColor'>Search for "{keyword}"</h2>
