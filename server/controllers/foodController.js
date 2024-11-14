@@ -138,5 +138,4 @@ module.exports = {
   updateFood,
   deleteFood,
   getFoodById,
-  updateFoodGMapLink,
 };
