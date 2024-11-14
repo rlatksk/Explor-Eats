@@ -28,7 +28,11 @@ const foodSchema = new mongoose.Schema({
   gMapLocation: {
     type: String,
     required: true,
-  }
+  },
+  gMapLink: {
+    type: String,
+    required: true,
+  },
 });
 
 const Food = mongoose.model('Food', foodSchema);

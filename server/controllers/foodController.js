@@ -6,10 +6,14 @@ async function createFood(req, res) {
   try {
     const { name, description, city, location, gMapLocation } = req.body;
     const foodImageFile = req.files.foodImage ? req.files.foodImage[0] : null;
-    const ambienceImageFile = req.files.ambienceImage ? req.files.ambienceImage[0] : null;
+    const ambienceImageFile = req.files.ambienceImage
+      ? req.files.ambienceImage[0]
+      : null;
 
     if (!foodImageFile || !ambienceImageFile) {
-      return res.status(400).json({ error: "Food image or ambience image is missing" });
+      return res
+        .status(400)
+        .json({ error: "Food image or ambience image is missing" });
     }
 
     const foodImageUrl = await uploadFile(foodImageFile);
@@ -23,6 +27,7 @@ async function createFood(req, res) {
       foodImage: foodImageUrl,
       ambienceImage: ambienceImageUrl,
       gMapLocation,
+      gMapLink,
     });
 
     await newFood.save();
@@ -58,12 +63,19 @@ async function getFoodsbyCity(req, res) {
 async function updateFood(req, res) {
   try {
     const { id } = req.params;
-    const { name, description, city, location, gMapLocation } = req.body;
+    const { name, description, city, location, gMapLocation, gMapLink } =
+      req.body;
     const foodImageFile = req.files.foodImage ? req.files.foodImage[0] : null;
-    const ambienceImageFile = req.files.ambienceImage ? req.files.ambienceImage[0] : null;
+    const ambienceImageFile = req.files.ambienceImage
+      ? req.files.ambienceImage[0]
+      : null;
 
-    const foodImageUrl = foodImageFile ? await uploadFile(foodImageFile) : undefined;
-    const ambienceImageUrl = ambienceImageFile ? await uploadFile(ambienceImageFile) : undefined;
+    const foodImageUrl = foodImageFile
+      ? await uploadFile(foodImageFile)
+      : undefined;
+    const ambienceImageUrl = ambienceImageFile
+      ? await uploadFile(ambienceImageFile)
+      : undefined;
 
     const updatedFood = await Food.findByIdAndUpdate(
       id,
@@ -75,6 +87,7 @@ async function updateFood(req, res) {
         foodImage: foodImageUrl || undefined,
         ambienceImage: ambienceImageUrl || undefined,
         gMapLocation,
+        gMapLink,
       },
       { new: true }
     );
@@ -124,5 +137,6 @@ module.exports = {
   getFoodsbyCity,
   updateFood,
   deleteFood,
-  getFoodById
+  getFoodById,
+  updateFoodGMapLink,
 };
