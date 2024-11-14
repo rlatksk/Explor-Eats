@@ -46,7 +46,7 @@ function FoodDetails() {
         </div>
         <div className='grid grid-cols-9 gap-16 items-center'>
           <div className='flex flex-col col-span-4 gap-6 justify-center border-secondaryColor border-2 rounded-[2rem] p-8 bg-primaryColor'>
-            <h1 className='text-secondaryColor font-bold text-[2rem]'>Location (Resto)</h1>
+            <h1 className='text-secondaryColor font-bold text-[2rem]'>Location</h1>
             <p className='text-secondaryColor font-semibold text-[0.938rem] text-justify'>
               {food.location}
             </p>
