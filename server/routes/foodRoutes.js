@@ -21,8 +21,8 @@ router.post(
   createFood
 );
 router.get("/food", getFoods);
-router.get("/food/:city", getFoodsbyCity);
 router.get("/food/:id", getFoodById);
+router.get("/food/:city", getFoodsbyCity);
 router.put(
   "/food/:id",
   upload.fields([
