@@ -60,7 +60,7 @@ function PlaceHome() {
                     {city.culinaryDescription}
                   </p>
                   <Button className="min-w-[34.375rem]" variant="default2">
-                    <Link to={`/details/place/${city.city.toLowerCase()}`}>
+                    <Link to={`/details/place/${city.city}`}>
                       Start Discovering
                     </Link>
                   </Button>
