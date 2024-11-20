@@ -10,7 +10,6 @@ function SearchList() {
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(9);
-  const [totalItems, setTotalItems] = useState(0);
   const [keyword, setKeyword] = useState('');
 
   useEffect(() => {
@@ -18,7 +17,6 @@ function SearchList() {
       .then((res) => {
         if (Array.isArray(res.data)) {
           setItems(res.data);
-          setTotalItems(res.data.length);
         } else {
           console.error('Expected an array in response, but got:', res.data);
         }
@@ -28,13 +26,25 @@ function SearchList() {
       });
   }, []);
 
-  const totalPages = Math.ceil(totalItems / limit);
-  const paginatedItems = items.slice((page - 1) * limit, page * limit);
+  const filteredItems = keyword
+    ? items.filter((item) =>
+        item.name.toLowerCase().includes(keyword.toLowerCase()) ||
+        item.description.toLowerCase().includes(keyword.toLowerCase())
+      )
+    : items;
+
+  const totalPages = Math.ceil(filteredItems.length / limit);
+  const paginatedItems = filteredItems.slice((page - 1) * limit, page * limit);
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
       setPage(newPage);
     }
+  };
+
+  const handleKeywordChange = (e) => {
+    setKeyword(e.target.value);
+    setPage(1);
   };
 
   const maxPagesToShow = 5;
@@ -58,7 +68,7 @@ function SearchList() {
               placeholder="Search"
               className="bg-transparent text-white placeholder-gray-400 focus:outline-none w-full"
               value={keyword}
-              onChange={(e) => setKeyword(e.target.value)}
+              onChange={handleKeywordChange}
             />
             <button>
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
