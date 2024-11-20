@@ -30,7 +30,8 @@ function SearchList() {
   const filteredItems = keyword
     ? items.filter((item) =>
         item.name.toLowerCase().includes(keyword.toLowerCase()) ||
-        item.description.toLowerCase().includes(keyword.toLowerCase())
+        item.description.toLowerCase().includes(keyword.toLowerCase()) ||
+        item.location.toLowerCase().includes(keyword.toLowerCase())
       )
     : items;
 
@@ -61,8 +62,10 @@ function SearchList() {
     <div>
       <PageDesc title={`${city} Food List`} route={`Home / Food / List / ${city}`} />
       <div className='flex flex-col h-fit bg-primaryColor gap-[2rem] pt-[4.375rem] pb-[3.125rem] px-[15rem]'>
-        <div className='flex justify-between'>
-          <h2 className='text-[2rem] text-secondaryColor'>Search for "{keyword}"</h2>
+      <div className={`flex  ${keyword ? 'justify-between' : 'justify-end'}`}>
+          {keyword && (
+            <h2 className='text-[1.8rem] text-secondaryColor'>Searching for "{keyword}"</h2>
+          )}
           <div className="flex items-center bg-secondaryColor rounded-full px-4 py-2 w-64">
             <input
               type="text"
