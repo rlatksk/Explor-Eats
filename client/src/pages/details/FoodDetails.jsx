@@ -50,9 +50,14 @@ function FoodDetails() {
             <p className='text-secondaryColor font-semibold text-[0.938rem] text-justify'>
               {food.location}
             </p>
-            <Link className={buttonVariants({ variant: "secondary" })} href={food.gMapLocation} target="_blank">
+            <a
+              className={buttonVariants({ variant: "secondary" })}
+              href={food.gMapLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Maps
-            </Link>
+            </a>
           </div>
           <img src={food.ambienceImage} className='h-[24.5rem] col-span-5 w-full object-cover rounded-[0.625rem]' alt="Ambience" />
         </div>
