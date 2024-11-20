@@ -12,7 +12,7 @@ function FoodDetails() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`/api/food/${id}`)
+    axios.get(`/api/food/getFoodbyID/${id}`)
       .then((response) => {
         setFood(response.data);
         setLoading(false);
