@@ -32,8 +32,7 @@ async function getCity(req, res) {
 async function getCityByName(req, res) {
   try {
     const { city } = req.params;
-    const formattedCity = city.charAt(0).toUpperCase() + city.slice(1);
-    const location = await Location.findOne({ city : formattedCity });
+    const location = await Location.findOne({ city });
     if (!location) {
       return res.status(404).json({ error: "City not found" });
     }
