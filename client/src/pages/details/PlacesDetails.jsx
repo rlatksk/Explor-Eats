@@ -5,7 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import Singkawang1 from '@/assets/images/Singkawang1.png';
 import Pontianak1 from '@/assets/images/Pontianak1.png';
-
+import Pontianak2 from '@/assets/images/Pontianak2.jpg';
 function PlacesDetails() {
   const { city } = useParams();
   const [location, setLocation] = useState(null);
@@ -34,7 +34,7 @@ function PlacesDetails() {
   if (location.city === 'Singkawang') {
     cityImage = Singkawang1;
   } else if (location.city === 'Pontianak') {
-    cityImage = Pontianak1;
+    cityImage = Pontianak2;
   } else {
     cityImage = Singkawang1;
   }
