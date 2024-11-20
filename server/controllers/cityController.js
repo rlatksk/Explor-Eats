@@ -29,6 +29,19 @@ async function getCity(req, res) {
   }
 }
 
+async function getCityByName(req, res) {
+  try {
+    const { city } = req.params;
+    const location = await Location.findOne({ city });
+    if (!location) {
+      return res.status(404).json({ error: "City not found" });
+    }
+    res.status(200).json(location);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
 // Update a location
 async function updateCity(req, res) {
   try {
@@ -72,4 +85,5 @@ module.exports = {
   getCity,
   updateCity,
   deleteCity,
+  getCityByName
 };
