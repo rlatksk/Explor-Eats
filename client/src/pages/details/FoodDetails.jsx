@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PageDesc from '@/layout/PageDesc';
 import { Link } from 'react-router-dom';
-import { Button, buttonVariants } from "@/components/ui/button";
-import Singkawang1 from '@/assets/images/Singkawang1.png';
-import bgPontianak from '@/assets/images/Pontianak1.png';
+import { buttonVariants } from "@/components/ui/button";
+import bgSingkawang from '@/assets/images/Singkawang1.png';
+import bgPontianak from '@/assets/images/bgPontianak.jpg';
 import axios from 'axios';
 
 function FoodDetails() {
@@ -34,7 +34,7 @@ function FoodDetails() {
     <div>
       <PageDesc title={`${food.name}`} route={`Home / Food / ${food.name}`} />
       {/* <div className='flex flex-col h-fit bg-tertiaryColor gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[20rem]'> */}
-      <div className='relative h-fit bg-cover bg-center  pt-[4.375rem] pb-[3.125rem] px-[20rem]' style={{ backgroundImage: `url(${food.city === 'singkawang' ? Singkawang1 : bgPontianak})` }}>
+      <div className='relative h-fit bg-cover bg-center  pt-[4.375rem] pb-[3.125rem] px-[20rem]' style={{ backgroundImage: `url(${food.city === 'Singkawang' ? bgSingkawang : bgPontianak})` }}>
       <div className='absolute inset-0 bg-tertiaryColor opacity-90'></div> {/* Overlay with opacity */}
       <div className='relative flex flex-col h-full w-full gap-[3.125rem] pt-10'>
         <Link to="/list" className='text-secondaryColor font-semibold text-[1.25rem]'>
