@@ -30,6 +30,15 @@ function PlacesDetails() {
     return <div className="text-center text-gray-500">Loading city details...</div>;
   }
 
+  let cityImage;
+  if (location.city === 'Singkawang') {
+    cityImage = Singkawang1;
+  } else if (location.city === 'Pontianak') {
+    cityImage = Pontianak1;
+  } else {
+    cityImage = Singkawang1;
+  }
+
   return (
     <div>
       <PageDesc title={`Details of ${location.city}`} route={`Home/Place/${location.city}`} />
@@ -40,7 +49,7 @@ function PlacesDetails() {
         <div className='grid grid-cols-7 gap-12'>
           <div className='flex flex-col col-span-3'>
             <img
-              src={Singkawang1}
+              src={cityImage}
               alt={location.city}
               className='object-cover h-full w-full'
             />
@@ -66,7 +75,7 @@ function PlacesDetails() {
             </div>
             <div className='flex items-center justify-center flex-col gap-10 bg-secondaryColor text-primaryColor border-secondaryColor border-2 rounded-[2rem] p-6'>
               <h1 className='text-primaryColor font-bold text-[2rem]'>List Makanan</h1>
-              <Link to={`/food/${location.city.toLowerCase()}`} className='bg-primaryColor text-white px-6 py-4 rounded-full flex items-center justify-center hover:bg-gray'>
+              <Link to={`/list/${location.city}`} className='bg-primaryColor text-white px-6 py-4 rounded-full flex items-center justify-center hover:bg-gray'>
                 <h1 className='text-secondaryColor font-bold text-[2rem]'>&rarr;</h1>
               </Link>
             </div>
