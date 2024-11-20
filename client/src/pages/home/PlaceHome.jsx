@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import Button from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import CheHunTiau from '@/assets/images/CheHunTiau.jpg';
-import Singkawang1 from '@/assets/images/Singkawang1.png';
-import Pontianak1 from '@/assets/images/Pontianak1.png';
+import SingkawangCover from '@/assets/images/SingkawangCover.png';
+import PontianakCover from '@/assets/images/Pontianak1.png';
 import axios from 'axios';
 
 function PlaceHome() {
@@ -37,7 +37,7 @@ function PlaceHome() {
           <div key={index} className='grid grid-cols-2 gap-16'>
             {index % 2 === 0 ? (
               <>
-                <img src={Singkawang1} 
+                <img src={SingkawangCover} 
                      alt={city.city} 
                      className='h-[24.5rem] w-full object-cover rounded-[0.625rem]' />
                 <div className='flex flex-col gap-6 justify-center'>
@@ -65,7 +65,7 @@ function PlaceHome() {
                     </Link>
                   </Button>
                 </div>
-                <img src={Pontianak1} 
+                <img src={PontianakCover} 
                      alt={city.city} 
                      className='h-[24.5rem] w-full object-cover rounded-[0.625rem]' />
               </>
