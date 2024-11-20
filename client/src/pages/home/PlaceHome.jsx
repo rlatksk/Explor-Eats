@@ -3,7 +3,7 @@ import {Button, buttonVariants} from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import CheHunTiau from '@/assets/images/CheHunTiau.jpg';
 import SingkawangCover from '@/assets/images/SingkawangCover.png';
-import PontianakCover from '@/assets/images/Pontianak1.png';
+import PontianakCover from '@/assets/images/PontianakCover.jpg';
 import axios from 'axios';
 
 function PlaceHome() {

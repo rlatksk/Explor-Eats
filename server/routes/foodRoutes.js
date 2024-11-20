@@ -21,7 +21,7 @@ router.post(
   createFood
 );
 router.get("/food", getFoods);
-router.get("/food/:id", getFoodById);
+router.get("/food/getFoodbyID/:id", getFoodById);
 router.get("/food/:city", getFoodsbyCity);
 router.put(
   "/food/:id",
