@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Button from '@/components/ui/button';
+import {Button, buttonVariants} from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import CheHunTiau from '@/assets/images/CheHunTiau.jpg';
 import SingkawangCover from '@/assets/images/SingkawangCover.png';
@@ -45,11 +45,7 @@ function PlaceHome() {
                   <p className='text-primaryColor font-semibold text-[0.938rem] text-justify'>
                     {city.culinaryDescription}
                   </p>
-                  <Button className="min-w-[34.375rem]" variant="default2">
-                    <Link to={`/details/place/${city.city}`}>
-                      Start Discovering
-                    </Link>
-                  </Button>
+                  <Link to={`/details/place/${city.city}`} className={buttonVariants({ variant: "default2" })} >Start Discovering</Link>
                 </div>
               </>
             ) : (
@@ -59,11 +55,7 @@ function PlaceHome() {
                   <p className='text-primaryColor font-semibold text-[0.938rem] text-justify'>
                     {city.culinaryDescription}
                   </p>
-                  <Button className="min-w-[34.375rem]" variant="default2">
-                    <Link to={`/details/place/${city.city}`}>
-                      Start Discovering
-                    </Link>
-                  </Button>
+                  <Link to={`/details/place/${city.city}`} className={buttonVariants({ variant: "default2" })} >Start Discovering</Link>
                 </div>
                 <img src={PontianakCover} 
                      alt={city.city} 
