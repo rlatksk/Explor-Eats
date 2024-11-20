@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Carousel } from '@/components/Carousel';
 import CheHunTiau from '@/assets/images/CheHunTiau.jpg';
+import axios from 'axios';
 
 function FoodHome() {
-  const slides = [
-    { id: 1, title:"Che Hun Tiau", text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum. ', image: CheHunTiau },
-    { id: 2, title:"Che Hun Tiau", text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum. ', image: CheHunTiau },
-    { id: 3, title:"Che Hun Tiau", text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum. ', image: CheHunTiau },
-    { id: 4, title:"Che Hun Tiau", text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum. ', image: CheHunTiau },
-    { id: 5, title:"Che Hun Tiau", text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum. ', image: CheHunTiau },
-  ];
+  const [slides, setSlides] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const OPTIONS = { loop: true };
 
-  const OPTIONS = { loop: true }
+  useEffect(() => {
+    axios.get('/api/food')
+      .then((response) => {
+        const foodData = response.data;
+
+        const mappedSlides = foodData.map((food) => ({
+          id: food._id,
+          text: food.name,
+          image: food.foodImage,
+        }));
+
+        setSlides(mappedSlides);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError('Error fetching food data');
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div className='flex flex-col h-fit items-center bg-primaryColor gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[10rem]'>
@@ -22,8 +38,13 @@ function FoodHome() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum.
         </p>
         <hr className='border-t-8 border-secondaryColor w-11/12 rounded-full' />
-          {/* <Carousel slides={slides} /> */}
+        {loading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>{error}</p>
+        ) : (
           <Carousel slides={slides} options={OPTIONS} />
+        )}
         
       </div>
         <hr className='border-t-8 border-secondaryColor w-11/12 rounded-full' />
