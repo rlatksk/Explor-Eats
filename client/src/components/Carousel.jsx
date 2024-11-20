@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import CheHunTiau from '@/assets/images/CheHunTiau.jpg';
@@ -85,10 +86,10 @@ const Carousel = ({ slides, options }) => {
             <div className="embla__slide" key={index}>
                 <div className="embla__slide__number"> 
                   <img className="embla__slide__image" src={slide.image}  />
-                    <div className="embla__slide__overlay flex-col p-10 text-center">
-                    <p className="text-white text-[1rem] mb-10">{slide.text}</p>
-                    <h1 className='text-white text-[2.5rem]'>{slide.title}</h1>
-                </div>
+                    <Link to={`/details/food/${slide.id}`} className="embla__slide__overlay flex-col p-10 text-center">
+                      <p className="text-white text-[1rem] mb-5">{slide.text}</p>
+                      <h2 className='text-white text-[2.5rem]'>{slide.name}</h2>
+                    </Link>
                 </div>
           </div>
           ))}

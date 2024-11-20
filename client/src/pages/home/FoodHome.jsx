@@ -16,7 +16,8 @@ function FoodHome() {
 
         const mappedSlides = foodData.map((food) => ({
           id: food._id,
-          text: food.name,
+          text: food.description,
+          name: food.name,
           image: food.foodImage,
         }));
 
