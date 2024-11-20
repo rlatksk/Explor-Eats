@@ -4,11 +4,11 @@ import CheHunTiau from '@/assets/images/CheHunTiau.jpg';
 
 function FoodHome() {
   const slides = [
-    { id: 1, text: 'Slide 1', image: CheHunTiau },
-    { id: 2, text: 'Slide 2', image: CheHunTiau },
-    { id: 3, text: 'Slide 3', image: CheHunTiau },
-    { id: 4, text: 'Slide 4', image: CheHunTiau },
-    { id: 5, text: 'Slide 5', image: CheHunTiau },
+    { id: 1, title:"Che Hun Tiau", text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum. ', image: CheHunTiau },
+    { id: 2, title:"Che Hun Tiau", text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum. ', image: CheHunTiau },
+    { id: 3, title:"Che Hun Tiau", text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum. ', image: CheHunTiau },
+    { id: 4, title:"Che Hun Tiau", text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum. ', image: CheHunTiau },
+    { id: 5, title:"Che Hun Tiau", text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum rutrum elit, ut mattis dolor vulputate eu. Nam vel libero ex. Quisque finibus ligula ac tempus dapibus. Cras sed dictum ligula. Vivamus hendrerit egestas laoreet. Pellentesque varius in nibh eu elementum. In congue sed lacus in condimentum. ', image: CheHunTiau },
   ];
 
   const OPTIONS = { loop: true }

@@ -85,8 +85,9 @@ const Carousel = ({ slides, options }) => {
             <div className="embla__slide" key={index}>
                 <div className="embla__slide__number"> 
                   <img className="embla__slide__image" src={slide.image}  />
-                    <div className="embla__slide__overlay">
-                    <p className="text-white text-lg">{slide.text}</p>
+                    <div className="embla__slide__overlay flex-col p-10 text-center">
+                    <p className="text-white text-[1rem] mb-10">{slide.text}</p>
+                    <h1 className='text-white text-[2.5rem]'>{slide.title}</h1>
                 </div>
                 </div>
           </div>
