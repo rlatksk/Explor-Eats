@@ -50,9 +50,8 @@ async function getFoods(req, res) {
 // Get a food by city
 async function getFoodsbyCity(req, res) {
   try {
-    const { city } = req.query;
-    const query = city ? { city } : {};
-    const foods = await Food.find(query);
+    const { city } = req.params;
+    const foods = await Food.find({ city });
     res.status(200).json(foods);
   } catch (error) {
     res.status(500).json({ error: error.message });
