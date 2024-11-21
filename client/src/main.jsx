@@ -8,6 +8,7 @@ import FoodDetails from './pages/details/FoodDetails';
 import PlacesDetails from './pages/details/PlacesDetails';
 import SearchList from './pages/SearchList';
 import SearchListFiltered from './pages/SearchListFiltered';
+import About from './pages/About';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: "/details/place/:city", element: <PlacesDetails /> },
       { path: "/list", element: <SearchList /> },
       { path: "/list/:city", element: <SearchListFiltered /> },
+      { path: "/about", element: <About /> },
     ],
   },
 ]);
