@@ -41,7 +41,7 @@ function PlacesDetails() {
 
   return (
     <div>
-      <PageDesc title={`Details of ${location.city}`} route={`Home/Place/${location.city}`} />
+      <PageDesc title={`Details of ${location.city}`} route={`Home / Place / ${location.city}`} />
       <div className='flex flex-col h-fit bg-tertiaryColor gap-[3.125rem] pt-[4.375rem] pb-[3.125rem] px-[15rem]'>
         <Link to={"/"} className='text-secondaryColor font-semibold text-[1.25rem]'>
           &larr; Back
