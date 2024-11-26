@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 const app = express();
 
 const corsOptions = {
-  origin: 'https://explor-eats-qrtp.vercel.app/', // Replace with your Vercel deployment URL
+  origin: 'https://explor-eats-production.up.railway.app/',
   optionsSuccessStatus: 200,
 };
 
