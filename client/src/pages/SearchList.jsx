@@ -13,7 +13,7 @@ function SearchList() {
   const [keyword, setKeyword] = useState('');
 
   useEffect(() => {
-    axiosInstance.get(`/api/food/getFoodbyID/${id}`)
+    axiosInstance.get('/api/food')
       .then((res) => {
         if (Array.isArray(res.data)) {
           setItems(res.data);
