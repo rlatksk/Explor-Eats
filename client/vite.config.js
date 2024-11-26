@@ -12,7 +12,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': 'https://explor-eats-production.up.railway.app/',
+      '/api': 'process.env.VITE_API_BASE_URL',
     },
   },
 })
