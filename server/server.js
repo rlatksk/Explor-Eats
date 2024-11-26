@@ -4,9 +4,14 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const app = express();
 
+const corsOptions = {
+  origin: 'https://explor-eats-qrtp.vercel.app/', // Replace with your Vercel deployment URL
+  optionsSuccessStatus: 200,
+};
+
 dotenv.config();
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
