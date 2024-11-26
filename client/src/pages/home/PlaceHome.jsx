@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import CheHunTiau from '@/assets/images/CheHunTiau.jpg';
 import SingkawangCover from '@/assets/images/SingkawangCover.png';
 import PontianakCover from '@/assets/images/PontianakCover.jpg';
-import axios from 'axios';
+import axiosInstance from '@/lib/axios';
 
 function PlaceHome() {
   const [cities, setCities] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/city')
+    axiosInstance.get('/api/city')
       .then((res) => {
         if (Array.isArray(res.data)) {
           setCities(res.data);

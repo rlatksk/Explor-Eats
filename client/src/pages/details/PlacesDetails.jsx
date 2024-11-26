@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react'
 import PageDesc from '@/layout/PageDesc'
 import CheHunTiau from '@/assets/images/CheHunTiau.jpg';
 import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
+import axiosInstance from '@/lib/axios';
 import Singkawang1 from '@/assets/images/Singkawang1.png';
 import Pontianak1 from '@/assets/images/Pontianak1.png';
 import Pontianak2 from '@/assets/images/Pontianak2.jpg';
@@ -12,7 +12,7 @@ function PlacesDetails() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`/api/city/${city}`)
+    axiosInstance.get(`/api/city/${city}`)
       .then((res) => {
         setLocation(res.data);
       })

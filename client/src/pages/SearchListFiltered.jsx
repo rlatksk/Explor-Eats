@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/ca
 import { Button } from '@/components/ui/button';
 import { Link, useParams } from 'react-router-dom';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
-import axios from 'axios';
+import axiosInstance from '@/lib/axios';
 
 function SearchList() {
   const { city } = useParams();
@@ -14,7 +14,7 @@ function SearchList() {
   const [keyword, setKeyword] = useState('');
 
   useEffect(() => {
-    axios.get(`/api/food/${city}`)
+    axiosInstance.get(`/api/food/${city}`)
       .then((res) => {
         if (Array.isArray(res.data)) {
           setItems(res.data);

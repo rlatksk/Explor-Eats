@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Carousel } from "@/components/Carousel";
 import CheHunTiau from "@/assets/images/CheHunTiau.jpg";
-import axios from "axios";
+import axiosInstance from '@/lib/axios';
 
 function FoodHome() {
   const [slides, setSlides] = useState([]);
@@ -10,7 +10,7 @@ function FoodHome() {
   const OPTIONS = { loop: true };
 
   useEffect(() => {
-    axios
+    axiosInstance
       .get("/api/food")
       .then((response) => {
         const foodData = response.data;

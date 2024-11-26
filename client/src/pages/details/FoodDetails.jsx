@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { buttonVariants } from "@/components/ui/button";
 import bgSingkawang from '@/assets/images/Singkawang1.png';
 import bgPontianak from '@/assets/images/bgPontianak.jpg';
-import axios from 'axios';
+import axiosInstance from '@/lib/axios';
 
 function FoodDetails() {
   const { id } = useParams();
@@ -14,7 +14,7 @@ function FoodDetails() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`/api/food/getFoodbyID/${id}`)
+    axiosInstance.get(`/api/food/getFoodbyID/${id}`)
       .then((response) => {
         setFood(response.data);
         setLoading(false);
